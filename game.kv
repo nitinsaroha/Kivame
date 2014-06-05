@@ -1,0 +1,195 @@
+<LogoScreen>:
+    canvas:
+        Color:
+            rgb: 245/255., 223/255., 240/255., 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<ScreenMenu>:
+    canvas:
+        Color:
+            rgb: root.r/255., root.g/255., root.b/255.
+        Rectangle:
+            size: self.size
+            pos: self.pos    
+
+
+<WinPopup>:
+    size_hint: .5, .5
+    title: root.title 
+    Label:
+        text: root.label_text 
+
+
+<LosePopup>:
+    size_hint: .5, .5
+    title: root.title 
+    Label:
+        text: root.label_text 
+
+
+<ScreenTwo>:
+    canvas:
+        Color:
+            rgb: root.r/255., root.g/255., root.b/255. 
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        id: label
+        color: 217/255., 152/255., 167/255., 1
+        pos: 0.5 * self.parent.size[0] - self.texture_size[0]/2., 0.925 * self.parent.size[1]
+        size_hint: None, None
+        size: self.texture_size
+    Button:
+        id: back_button
+        text: "<"
+        pos: 0.025 * self.parent.width, 0.925 * self.parent.height
+        size_hint: .05, .05 
+        on_press: app.switch_screen("one")
+    Button:
+        id: forward_button
+        text: ">"
+        pos: 0.925 * self.parent.width, 0.925 * self.parent.height
+        size_hint: .05, .05 
+        on_press: app.switch_screen("three")
+    Label:
+        pos: 0, 0
+        size_hint: 1, 0.1
+        text: "Game Score: %d" % int(app.score)
+        halign: "center"
+        font_size: self.parent.height/15.
+        text_size: [self.parent.width, None]
+        font_name: "static/cartoon.ttf"
+
+     
+<GlowCircleObject>:
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 0.25
+        Ellipse:
+            pos: self.pos[0] - self.size[0] * 1.5, self.pos[1] - self.size[1] * 1.5
+            size: self.size[0] * 4, self.size[1] * 4 
+        Color:
+            rgba: 1, 1, 1, 1
+        Ellipse:
+            size: self.size
+            pos: self.pos
+
+    
+<CircleObject>:
+    canvas.after:
+        Color:
+            rgba: 12/255., 242/255., 47/255., 1
+        Ellipse:
+            size: self.size
+            pos: self.pos
+
+     
+<DragCircleObject>:
+    canvas.after:
+        Color:
+            rgba: 0, 0, 1, 1 
+        Ellipse:
+            size: self.size
+            pos: self.pos
+
+      
+<DangerCircleObject>:
+    canvas.after:
+        Color:
+            rgba: 242/255., 86/255., 39/255., 1 
+        Ellipse:
+            size: self.size
+            pos: self.pos
+
+
+<DoorObject>:
+    canvas:
+        Color:
+            rgb: 79/255., 68/255., 55/255.
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+ 
+<WallObject>:
+    canvas:
+        Color:
+            rgb: 79/255., 68/255., 55/255.
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+  
+<DarkObject>:
+    canvas:
+        Color:
+            rgb: 0, 0, 0
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<DangerObject>:
+    canvas:
+        Color:
+            rgb: 1, 0, 0
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<WinObject>:
+    canvas:
+        Color:
+            rgb: 0/255., 255/255., 8/255.
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<FakeDoorObject,RealDoorObject>:
+    canvas:
+        Color:
+            rgb: 176/255., 130/255., 5/255.
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<ScreenThree,ScreenFour,ScreenFive,ScreenSix,ScreenSeven,ScreenEight>:
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<ScreenOne>:
+    canvas:
+        Color:
+            rgb: root.r/255., root.g/255., root.b/255.
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<ScreenTemp>:
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+<ScreenHelp>:
+    Button:
+        text: "<"
+        pos: 0.025 * self.parent.width, 0.925 * self.parent.height
+        size_hint: .05, .05 
+        on_press: app.switch_screen("menu")
